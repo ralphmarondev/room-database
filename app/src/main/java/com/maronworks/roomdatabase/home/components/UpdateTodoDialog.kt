@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 
 @Composable
-fun AddTodoDialog(
+fun UpdateTodoDialog(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
@@ -49,7 +49,7 @@ fun AddTodoDialog(
                     ),
                     label = {
                         Text(
-                            text = "Enter Todo",
+                            text = "Enter the New Todo",
                             fontFamily = FontFamily.Monospace,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.W500
@@ -61,7 +61,7 @@ fun AddTodoDialog(
                         .height(15.dp)
                 )
                 Button(onClick = onDismiss) {
-                    Text(text = "INSERT")
+                    Text(text = "UPDATE")
                 }
             }
         }

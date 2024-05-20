@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -21,13 +22,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.maronworks.roomdatabase.home.model.Todo
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodoCard(
     modifier: Modifier = Modifier,
     todo: Todo,
+    onDelete: () -> Unit,
     onClick: () -> Unit
 ) {
     ElevatedCard(
+        onClick = onClick,
         modifier = modifier,
         colors = CardDefaults.elevatedCardColors(
             containerColor = MaterialTheme.colorScheme.tertiary,
@@ -49,7 +53,7 @@ fun TodoCard(
                 )
                 Text(text = todo.date)
             }
-            IconButton(onClick = onClick) {
+            IconButton(onClick = onDelete) {
                 Icon(
                     imageVector = Icons.Outlined.Delete,
                     contentDescription = ""
